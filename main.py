@@ -19,6 +19,7 @@ def plot_decision_boundary(pred_func, X, y):
     plt.show()
 
 
+
 # Generate a dataset and plot it
 np.random.seed(0) # for init random generator
 X,y =  datasets.make_moons(200,noise=0.20)
@@ -32,3 +33,26 @@ clf.fit(X,y)
 # Plot the decision boundary
 plot_decision_boundary(lambda x: clf.predict(x),X,y)
 plt.title("Logistic Regression")
+
+
+def NeuralNetwork(X,y,hidden_layer = 1,number_of_features,output_layer = 2):
+    weights = []
+
+    shape = X.shape
+
+    for i in range(hidden_layer):
+        x = shape[1]
+        y = number_of_features[i]
+        w = np.zeros((x,y))
+        shape = (x,y)
+        weights.append(w)
+
+    x = shape[1]
+    y = output_layer
+    w = np.zeros((x,y))
+
+    for i in weights:
+        print i.shape
+
+
+NeuralNetwork(X,y)
